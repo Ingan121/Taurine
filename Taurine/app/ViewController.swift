@@ -258,7 +258,7 @@ class ViewController: UIViewController, ElectraUI {
                 
                 if #available(iOS 14, *){
                     print("Selecting cicuta_virosa for iOS 14.0 - 14.3")
-                    if cicuta_virosa() == 0 {
+                    if do_kopen(0x800, 0x0, 0x2, 0x2) != 0 {
                         any_proc = our_proc_kAddr
                         hasKernelRw = true
                     }

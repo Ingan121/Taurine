@@ -13,6 +13,7 @@
 #import "cicuta_virosa.h"
 #import <xpc/xpc.h>
 #include "jailbreak_daemonUser.h"
+#import "exploit/krw.h"
 
 #define PROC_PIDPATHINFO_SIZE  (MAXPATHLEN)
 int proc_pidpath(int pid, void * buffer, uint32_t  buffersize);

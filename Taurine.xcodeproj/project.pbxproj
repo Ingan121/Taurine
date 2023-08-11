@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6E01902A2A863724008DCA31 /* krw.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E0190292A863724008DCA31 /* krw.m */; };
+		6E75BFBD2A86326D0056ABDA /* libkfd in Resources */ = {isa = PBXBuildFile; fileRef = 6E75BFBB2A86326D0056ABDA /* libkfd */; };
 		8722909125D5BC41008E11FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8722909025D5BC41008E11FA /* Assets.xcassets */; };
 		8773B95D25EA2F640025E520 /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8773B95C25EA2F640025E520 /* IOKit.framework */; };
 		E1877E0826A8D376000890AD /* ColourPickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1877E0726A8D376000890AD /* ColourPickerCell.swift */; };
@@ -134,6 +136,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6E0190232A863724008DCA31 /* krw.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = krw.h; sourceTree = "<group>"; };
+		6E0190292A863724008DCA31 /* krw.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = krw.m; sourceTree = "<group>"; };
+		6E75BFBB2A86326D0056ABDA /* libkfd */ = {isa = PBXFileReference; lastKnownFileType = folder; path = libkfd; sourceTree = "<group>"; };
+		6E75BFBC2A86326D0056ABDA /* libkfd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libkfd.h; sourceTree = "<group>"; };
 		8722908125D5BC40008E11FA /* Taurine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taurine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8722909025D5BC41008E11FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8722909325D5BC41008E11FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -374,6 +380,10 @@
 		F17AE28325F2CAAF00EFDD80 /* exploit */ = {
 			isa = PBXGroup;
 			children = (
+				6E0190232A863724008DCA31 /* krw.h */,
+				6E0190292A863724008DCA31 /* krw.m */,
+				6E75BFBB2A86326D0056ABDA /* libkfd */,
+				6E75BFBC2A86326D0056ABDA /* libkfd.h */,
 				F17AE28925F2CAC700EFDD80 /* common */,
 				8722909E25D5BC5A008E11FA /* cicuta_virosa */,
 			);
@@ -594,6 +604,7 @@
 			files = (
 				F15C33AF25EC1E340013351E /* BuildConfigs.xcconfig in Resources */,
 				F17E74EA25FF2CCD008262A7 /* Main.storyboard in Resources */,
+				6E75BFBD2A86326D0056ABDA /* libkfd in Resources */,
 				F17E750F25FF2DD9008262A7 /* LaunchScreen.storyboard in Resources */,
 				F15B3CD725F8164B002C1D78 /* tar.gz in Resources */,
 				8722909125D5BC41008E11FA /* Assets.xcassets in Resources */,
@@ -623,6 +634,7 @@
 				F17E751525FF2E06008262A7 /* swiftUtil.swift in Sources */,
 				F17E751625FF2E06008262A7 /* offsets.swift in Sources */,
 				F17E751725FF2E06008262A7 /* remount.swift in Sources */,
+				6E01902A2A863724008DCA31 /* krw.m in Sources */,
 				F1B78BBE27ED400A00152952 /* kernelPatchfinder.swift in Sources */,
 				E1877E0826A8D376000890AD /* ColourPickerCell.swift in Sources */,
 				F17E751825FF2E06008262A7 /* nvram.swift in Sources */,
@@ -825,8 +837,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WF2CP4P53E;
 				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = NO;
 				INFOPLIST_FILE = Taurine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -837,7 +850,7 @@
 					"$(PROJECT_DIR)/Taurine/resources",
 				);
 				MARKETING_VERSION = 1.1.6;
-				PRODUCT_BUNDLE_IDENTIFIER = org.coolstar.taurine;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.h4ck.taurine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Taurine/Taurine-Bridging-Header.h";
@@ -855,8 +868,9 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = WF2CP4P53E;
 				ENABLE_BITCODE = NO;
+				ENABLE_TESTABILITY = YES;
 				INFOPLIST_FILE = Taurine/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -867,7 +881,8 @@
 					"$(PROJECT_DIR)/Taurine/resources",
 				);
 				MARKETING_VERSION = 1.1.6;
-				PRODUCT_BUNDLE_IDENTIFIER = org.coolstar.taurine;
+				MTL_ENABLE_DEBUG_INFO = No;
+				PRODUCT_BUNDLE_IDENTIFIER = kr.h4ck.taurine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "Taurine/Taurine-Bridging-Header.h";
