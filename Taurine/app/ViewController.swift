@@ -57,7 +57,7 @@ class ViewController: UIViewController, ElectraUI {
         
         jailbreakButton?.setTitle("Jailbreak", for: .normal)
         
-        if #available(iOS 14.4, *) {
+        if #available(iOS 14.5, *) {
             jailbreakButton?.isEnabled = false
             jailbreakButton?.setTitle("Unsupported", for: .normal)
         }
@@ -249,7 +249,7 @@ class ViewController: UIViewController, ElectraUI {
                     return
                 }
                 
-                if #available(iOS 14.4, *) {
+                if #available(iOS 14.5, *) {
                     fatalError("Unable to get kernel r/w")
                 }
                 
