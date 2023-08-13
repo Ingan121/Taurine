@@ -36,6 +36,9 @@ class ViewController: UIViewController, ElectraUI {
     
     @IBOutlet weak var containerViewYConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var useSmith: UISwitch!
+    @IBOutlet weak var usePhyspuppet: UISwitch!
+    
     private var themeImagePicker: ThemeImagePicker!
     private var activeColourDefault = ""
     private let colorPickerViewController = UIColorPickerViewController()
@@ -51,6 +54,11 @@ class ViewController: UIViewController, ElectraUI {
             UserDefaults.standard.removePersistentDomain(forName: bundleID)
         }
         */
+        
+        useSmith.addTarget(self, action: #selector(smith_switchValueChanged(_:)), for: .valueChanged)
+        usePhyspuppet.addTarget(self, action: #selector(physpuppet_switchValueChanged(_:)), for: .valueChanged)
+        useSmith.isOn = true
+        usePhyspuppet.isOn = false
         
         currentView = switchesView
         nonceSetter.delegate = NonceManager.shared
@@ -100,6 +108,22 @@ class ViewController: UIViewController, ElectraUI {
         NotificationCenter.default.addObserver(self, selector: #selector(updateTheme), name: ThemesManager.themeChangeNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.showColourPicker(_:)), name: ColourPickerCell.showColourPicker, object: nil)
         self.updateTheme()
+    }
+    
+    @objc func smith_switchValueChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            usePhyspuppet.isOn = false
+        } else {
+            usePhyspuppet.isOn = true
+        }
+    }
+    
+    @objc func physpuppet_switchValueChanged(_ sender: UISwitch) {
+        if sender.isOn {
+            useSmith.isOn = false
+        } else {
+            useSmith.isOn = true
+        }
     }
     
     @objc private func shouldOpenUpdateLink() {
@@ -257,11 +281,23 @@ class ViewController: UIViewController, ElectraUI {
                 var any_proc = UInt64(0)
                 
                 if #available(iOS 14, *){
-                    print("Selecting kfd - smith exploit for iOS 14.3 - ?")
-                    if do_kopen(0x800, 0x1, 0x2, 0x2) != 0 {
-                        any_proc = our_proc_kAddr
-                        hasKernelRw = true
+                    if self.useSmith.isOn {
+                        print("Selecting kfd - smith exploit for iOS 14.0 - 14.4.2")
+                        if do_kopen(0x800, 0x1, 0x2, 0x2) != 0 {
+                            print("Successfully exploited kernel!");
+                            any_proc = our_proc_kAddr
+                            hasKernelRw = true
+                        }
                     }
+                    else if self.usePhyspuppet.isOn {
+                        print("Selecting kfd - physpuppet exploit for iOS 14.0 - 14.4.2")
+                        if do_kopen(0x800, 0x0, 0x2, 0x2) != 0 {
+                            print("Successfully exploited kernel!");
+                            any_proc = our_proc_kAddr
+                            hasKernelRw = true
+                        }
+                    }
+                    
                 }
                 guard hasKernelRw else {
                     DispatchQueue.main.async {
