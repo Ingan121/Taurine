@@ -1,10 +1,11 @@
-# Taurine
+# Taurine (Unofficial)
 
 iOS 14 semi-untethered jailbreak.
+Ported kfd exploit.
 
 # Supported Devices
 
-All A8-A14 devices on iOS 14.0-14.3
+All A8-A11 devices on iOS 14.0-14.4.2
 
 # License
 
