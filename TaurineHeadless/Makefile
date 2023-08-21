@@ -55,4 +55,4 @@ fat:
 	rm $(OUTDIR)/$(TARGETNAME)-arm64 $(OUTDIR)/$(TARGETNAME)-arm64e
 
 clean:
-	rm -f $(OUTDIR)/$(TARGETNAME) $(OUTDIR)/$(TARGETNAME)-arm64 $(OUTDIR)/$(TARGETNAME)-arm64e *.o *.co
+	rm -f $(OUTDIR)/$(TARGETNAME) $(OUTDIR)/$(TARGETNAME)-arm64 $(OUTDIR)/$(TARGETNAME)-arm64e *.o *.co *.mo

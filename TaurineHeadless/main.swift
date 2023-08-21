@@ -1,4 +1,5 @@
 import Foundation
+import MachO.dyld
 
 public enum UntetherState {
     case enabled
@@ -36,12 +37,38 @@ public func getUntetherState() -> UntetherState {
     return .enabled
 }
 
+func isJailbroken() -> Bool {
+    var flags = UInt32()
+    let CS_OPS_STATUS = UInt32(0)
+    csops(getpid(), CS_OPS_STATUS, &flags, 0)
+    if flags & Consts.shared.CS_PLATFORM_BINARY != 0 {
+        return true
+    }
+    
+    let imageCount = _dyld_image_count()
+    for i in 0..<imageCount {
+        if let cName = _dyld_get_image_name(i) {
+            let name = String(cString: cName)
+            if name == "/usr/lib/pspawn_payload-stg2.dylib" {
+                return true
+            }
+        }
+    }
+    return false
+}
+
 func jailbreak() {
     let state = getUntetherState()
     if state == .disabled {
         print("Detected no_untether boot-args. Aborting jailbreak...")
         return
     }
+    
+    if isJailbroken() {
+        print("Already jailbroken. No need to jailbreak.")
+        return
+    }
+    
     print("Running Exploit.. 1/3")
     
     let enableTweaks = true

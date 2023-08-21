@@ -97,6 +97,9 @@ SwiftZSTD.framework
 Payload
 *.o
 *.co
+*.mo
 amfidebilitate/bin/
 test-kernrw/bin/
 *.gch
+TaurineHeadless/bin/
+untether/fileproviderctl_internal
